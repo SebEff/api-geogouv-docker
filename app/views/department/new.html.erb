@@ -1,0 +1,10 @@
+<%= form_tag :department, url: department_path, local: true do %>
+  <p>
+    <%= label_tag :department, "department code" %><br>
+    <%= text_field_tag :department %>
+  </p>
+ 
+  <p>
+    <%= submit_tag %>
+  </p>
+<% end %>
