@@ -1,9 +1,11 @@
 class Createdepartment < ActiveRecord::Migration[5.0]
 	def change
-	create_table :department do |t|
-		t.string :code
-		t.string :nom
-		t.string :codesPostaux
-		t.string :codeDepartement
-		t.string :codeRegion
-		 
+		create_table(:communes_regions) do |t|
+		t.column :code, :string,
+		t.column :nom, :string,
+		t.column :codesPostaux, :string,
+		t.column :codeDepartement, :string,
+		t.column :codeRegion, :string,
+		t.column :codeDepartement, :string,
+		t.column :population, :0,
+	end
