@@ -4,8 +4,8 @@ class DepartmentController < ApplicationController
 	end
 
 	def create
-  		department = params[:department]
-  		ReportWorker.perform_async(department)
-  	end
+		department = params[:department]
+		ReportWorker.perform_async(department)
+	end
   
 end
