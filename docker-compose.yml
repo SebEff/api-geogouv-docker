@@ -1,11 +1,13 @@
-version: '3'
+version: '3.6'
 services:
   db:
     image: postgres:10
     volumes:
       - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
   web:
-    build: .
+    image: sebastien
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/myapp:cached
@@ -22,8 +24,6 @@ services:
       - redis
     volumes:
       - .:/myapp:cached
-    env_file:
-      - .env
   redis:
     image: redis:latest
     volumes: 
