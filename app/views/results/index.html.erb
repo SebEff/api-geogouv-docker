@@ -1,0 +1,17 @@
+<h1>All cities</h1>
+
+<table>
+  <tr>
+   <th>Nom</th>
+    <th>Code</th>
+    <th></th>
+  </tr>
+
+  <% @results.each do |result| %>
+    <tr>
+        <td><%= result.name %></td>
+        <td><%= result.code %></td>
+        <td></td>
+    </tr>
+  <% end %>
+</table>

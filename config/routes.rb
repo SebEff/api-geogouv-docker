@@ -6,8 +6,7 @@ Rails.application.routes.draw do
 	root 'department#new'
 	mount Sidekiq::Web=> "/sidekiq"
 	
-	get 'results', to: 'results#show'
-	resources :department, only: [:new, :create]
- 
+	get 'results', to: 'results#index'
+	
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
