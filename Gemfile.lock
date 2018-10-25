@@ -204,7 +204,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_print
+  awesome_print (~> 1.8)
   byebug
   capybara (>= 2.15, < 4.0)
   chromedriver-helper

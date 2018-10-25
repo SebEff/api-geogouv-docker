@@ -8,7 +8,7 @@ class ReportWorker
 		response_hash.each do |i|
 			puts i["nom"]
 			puts i["code"]
-			city = City.create(name: i["nom"], code: i["code"])
+			city = City.create!(name: i["nom"], code: i["code"])
 			puts city
 		end
 	end
