@@ -1,7 +1,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
+  host: ilovepostgresql
   username: postgres
   password:
   pool: 5

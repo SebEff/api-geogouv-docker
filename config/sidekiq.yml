@@ -1,2 +1,2 @@
 default: &default
- :url: 'redis://redis:6379/0'
+ :url: 'redis://mylocalredis:6379/0'
