@@ -1,44 +1,19 @@
 image: ruby 2.5.3
 
-stages:
+services:
+    - postgres:latest
 
-  - ver
+variables:
+  POSTGRES_DB: ilovepostgresql
 
-  - init
-
-  - tests
-
-  - deploy
-
-ver:
-
-  stage: ver
-
-  script:
-
-    - node --version
-
-    - whoami
-
-init:
-
-  stage: init
-
-  script:
-
-    - npm cache clean
-
-    - rm -rf node-modules
-
-    - npm install
-
-run_tests:
-
-  stage: tests
-
-  script:
-
-    - npm test
+before_script:
+  - apt-get update -qq & apt-get install -y -qq postgresql postgresql-contrib libpq-dev cmake
+  - ruby -v
+  - which ruby
+  - gem install bundler --no-ri --no-rdoc
+  - RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
+  - cp config/database.yml.gtlab config/database.yml
+  - RAILS_ENV=test bundle exec rake db:create db:schema:load
 
 deploy_staging:
 
