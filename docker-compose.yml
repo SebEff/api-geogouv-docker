@@ -2,13 +2,10 @@ version: '3.3'
 services:
   ilovepostgresql:
     image: postgres:10
-    environment: 
-    - POSTGRES_USER:"hello"
-    - POSTGRES_PASSWORD:"world"
     volumes:
      - ./db-data/:/var/lib/postgresql/data
     ports:
-     - "10257:5432" 
+     - "10257:5432"
   anotherrubyapp:
     image: sebastien
     command: bundle exec rails s -p 8741 -b '0.0.0.0'
@@ -19,7 +16,7 @@ services:
     depends_on:
       - ilovepostgresql
       - mylocalredis
-  awesomebackgroundjobs: 
+  awesomebackgroundjobs:
     image: sebastien
     command: bundle exec sidekiq
     depends_on:
@@ -29,7 +26,7 @@ services:
       - .:/myapp
   mylocalredis:
     image: redis:latest
-    volumes: 
+    volumes:
       - ./redis-data/:/data
-    ports: 
+    ports:
       - 10247:6379
